@@ -1,0 +1,8 @@
+num_epochs: 40
+batch_size: 8
+learning_rate: 0.05
+grad_norm_threshold: 0.01
+repetitions: 100
+gamma: 0.7
+lr_schedule: 'step'
+
