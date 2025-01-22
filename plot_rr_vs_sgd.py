@@ -3,9 +3,16 @@ import matplotlib.pyplot as plt
 import os
 from datetime import datetime
 import glob
+import sys
 
-# Get all .npy files in the current directory
-rr_npy_files = glob.glob("*rr_grad_norms*.npy")
+if len(sys.argv) != 2:
+    print("Usage: python plot_rr_vs_sgd.py <directory>")
+    sys.exit(1)
+
+directory = sys.argv[1]
+
+# Get all .npy files in the specified directory
+rr_npy_files = glob.glob(os.path.join(directory, "results/*rr_grad_norms*.npy"))
 
 # Load the last elements of each file
 rr_last_elements = []
@@ -16,7 +23,7 @@ for file in rr_npy_files:
 # Convert to numpy array and filter values <= 1
 rr_last_elements = np.array(rr_last_elements)
 
-sgd_npy_files = glob.glob("*sgd_grad_norms*.npy")
+sgd_npy_files = glob.glob(os.path.join(directory, "results/*sgd_grad_norms*.npy"))
 sgd_last_elements = []
 for file in sgd_npy_files:
     data = np.load(file)

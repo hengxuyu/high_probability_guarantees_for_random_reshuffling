@@ -1,15 +1,21 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import sys
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes, mark_inset
 import matplotlib.patches as patches
 
-lipschitz_grad_estimate_trajectory = np.load("lipschitz_grad_estimate_trajectory.npy")
-hessian_lip_estimate_trajectory = np.load("hessian_lip_estimate_trajectory.npy")
+if len(sys.argv) != 2:
+    print("Usage: python plot_lipschitz_estimate.py <directory>")
+    sys.exit(1)
+
+directory = sys.argv[1]
+
+lipschitz_grad_estimate_trajectory = np.load(f"{directory}/lipschitz_grad_estimate_trajectory.npy")
+hessian_lip_estimate_trajectory = np.load(f"{directory}/hessian_lip_estimate_trajectory.npy")
 
 # change as you see fit
 text_font_size = 28
 number_font_size = 28
-
 
 plt.gcf().set_size_inches(12, 9)
 plt.plot(lipschitz_grad_estimate_trajectory, alpha=0.5)
@@ -31,8 +37,6 @@ ax_inset.set_ylim(min(hessian_lip_estimate_trajectory[5000:5051]), max(hessian_l
 
 ax_inset.set_xticks([5000, 5050])
 ax_inset.set_yticks([min(hessian_lip_estimate_trajectory[5000:5051]), max(hessian_lip_estimate_trajectory[5000:5051])])
-
-
 
 ax_inset.tick_params(axis='both', which='major', labelsize=number_font_size - 10)
 

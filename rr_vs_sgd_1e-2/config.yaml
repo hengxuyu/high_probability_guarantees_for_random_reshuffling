@@ -5,4 +5,5 @@ grad_norm_threshold: 0.01
 repetitions: 100
 gamma: 0.7
 lr_schedule: 'step'
+results_folder: 'results'
 

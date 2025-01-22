@@ -21,10 +21,10 @@ GRAD_NORM_THRESHOLD = config['grad_norm_threshold']
 NUM_EPOCHS = config['num_epochs']
 BATCH_SIZE = config['batch_size']
 lr_decay_rate = config['gamma']
+results_folder = config['results_folder']
 
 paralell = int(os.environ.get('PARALELL', 0))
 repetition = int(os.environ.get('REPETITION', 0))
-results_folder = os.environ.get('RESULTS_FOLDER', 'results')
 
 
 train_set = torchvision.datasets.MNIST(root='../data', train=True, download=True, transform=transforms.ToTensor())

@@ -4,7 +4,6 @@ source /home/luoqijun/anaconda3/bin/activate hxt
 # Set the CUDA visible devices
 export CUDA_VISIBLE_DEVICES=0
 export REPETITION=1
-export RESULT_FOLDER=results
 
 # Loop over seeds and run the Python script
 for paralell in {0..19}; do
@@ -13,3 +12,4 @@ for paralell in {0..19}; do
     nohup python ../rr_vs_sgd.py > "output_process${paralell}.log" 2> "error_process${paralell}.log" &
 done
 
+python ./plot_rr_vs_sgd.py
