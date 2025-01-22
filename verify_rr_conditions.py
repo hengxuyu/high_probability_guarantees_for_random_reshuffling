@@ -18,7 +18,7 @@ BATCH_SIZE = 8
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Define the results folder with hyperparameters
-results_folder = f"results_lr{LEARNING_RATE}_bs{BATCH_SIZE}"
+results_folder = f"estimate_lipschitz_parameter"
 os.makedirs(results_folder, exist_ok=True)
 
 # Load the MNIST dataset

@@ -12,4 +12,3 @@ for paralell in {0..19}; do
     nohup python ../rr_vs_sgd.py > "output_process${paralell}.log" 2> "error_process${paralell}.log" &
 done
 
-python ./plot_rr_vs_sgd.py
