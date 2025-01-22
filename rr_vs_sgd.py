@@ -24,7 +24,7 @@ lr_decay_rate = config['gamma']
 
 paralell = int(os.environ.get('PARALELL', 0))
 repetition = int(os.environ.get('REPETITION', 0))
-results_folder = int(os.environ.get('RESULTS_FOLDER', 'results'))
+results_folder = os.environ.get('RESULTS_FOLDER', 'results')
 
 
 train_set = torchvision.datasets.MNIST(root='../data', train=True, download=True, transform=transforms.ToTensor())
