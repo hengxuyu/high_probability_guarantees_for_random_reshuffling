@@ -4,21 +4,21 @@ This repository contains the code used to produce all the plots in the paper [Hi
 
 ## Run the Experiments
 
-1. Clone the repository and navigate to the `rr_vs_sgd` directory:
+1. Run the experiments verifying Lipschitz conditions for RR using the following command:
+    ```sh
+    python verify_rr_conditions.py
+    ```
+    
+2. Navigate to the `rr_vs_sgd` directory:
     ```sh
     cd rr_vs_sgd
     ```
 
-2. Set the desired hyperparameters in the [config.yaml](rr_vs_sgd/config.yaml) file.
+3. Set the desired hyperparameters in the [config.yaml](rr_vs_sgd/config.yaml) file.
 
-3. Run the experiments comparing RR against SGD using the provided shell script:
+4. Run the experiments comparing RR against SGD using the provided shell script:
     ```sh
     ./run.sh
-    ```
-
-4. Run the experiments verifying Lipschitz conditions for RR using the following command:
-    ```sh
-    python verify_rr_conditions.py
     ```
 
 ## Plotting Results
@@ -28,7 +28,7 @@ This repository contains the code used to produce all the plots in the paper [Hi
     python plot_rr_vs_sgd.py rr_vs_sgd
     ```
 
-2. Generate the estimated Lipschitz constants along the trajectory of RR:
+2. Generate the plot of estimated Lipschitz constants along the trajectory of RR:
     ```sh
     python plot_lipschitz_estimate.py estimate_lipschitz_parameter
     ```
