@@ -28,7 +28,7 @@ repetition = int(os.environ.get('REPETITION', 0))
 
 
 train_set = torchvision.datasets.MNIST(root='../data', train=True, download=True, transform=transforms.ToTensor())
-
+os.makedirs(results_folder, exist_ok=True)
 full_grad_bs = 256
 full_data_size = len(train_set)
 full_train_loader = torch.utils.data.DataLoader(train_set, batch_size=full_grad_bs, shuffle=False)
